@@ -112,7 +112,9 @@ def meraki_vpn_failover():
             events_response = MerakiConfig.sdk_auth.networks.getNetworkEvents(
                 vpns['networkId'],
                 total_pages=1,
+                productType=["appliance"],
                 includedEventTypes = 'vpn'
+                
             )
 
             # parsing events_response to obtain raw event data to later iterate through if outage detected
@@ -701,6 +703,8 @@ def main(MerakiTimer: func.TimerRequest) -> None:
 
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
     logging.info('Python version: %s', sys.version)
+    logging.info('running Cristiano Scarpa script Version')
+
 
     # Obtain Meraki Org ID for API Calls
     result_org_id = MerakiConfig.sdk_auth.organizations.getOrganizations()
