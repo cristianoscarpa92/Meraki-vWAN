@@ -121,7 +121,7 @@ def meraki_vpn_failover():
             events_response_data = events_response['events']
 
             # indexing the last events data to later match against
-            event_data = events_response_data[-1]['eventData']
+            event_data = events_response_data[0]['eventData']
 
             # searching event_data string to match if the following strings are in the element
             # searching exactly for '(inbound) (0 bytes)' and '(outbound) (0 bytes)' in string
