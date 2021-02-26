@@ -52,42 +52,7 @@ class Appliance():
         @return: Information of WAN links
         '''
         links = {}
-        """
-        Remove WarmSpare - Azure not Support Multiple IP
-        """
-        """
-        if self.warmspare_enabled:
-            public_ips = []
-            if self.primary.wan1.public_ip and self.primary.wan1.public_ip not in public_ips:
-                links['primary-wan1'] = {
-                    'ipaddress': self.primary.wan1.public_ip,
-                    'isp': self.primary.wan1.service_provider,
-                    'linkspeed': self.primary.wan1.limit_down
-                }
-                public_ips.append(self.primary.wan1.public_ip)
-            if self.primary.wan2.public_ip and self.primary.wan2.public_ip not in public_ips:
-                links['primary-wan2'] = {
-                    'ipaddress': self.primary.wan2.public_ip,
-                    'isp': self.primary.wan2.service_provider,
-                    'linkspeed': self.primary.wan2.limit_down
-                }
-                public_ips.append(self.primary.wan2.public_ip)
-            if self.secondary.wan1.public_ip and self.secondary.wan1.public_ip not in public_ips:
-                links['secondary-wan1'] = {
-                    'ipaddress': self.secondary.wan1.public_ip,
-                    'isp': self.secondary.wan1.service_provider,
-                    'linkspeed': self.secondary.wan1.limit_down
-                }
-                public_ips.append(self.secondary.wan1.public_ip)
-            if self.secondary.wan2.public_ip and self.secondary.wan2.public_ip not in public_ips:
-                links['secondary-wan2'] = {
-                    'ipaddress': self.secondary.wan2.public_ip,
-                    'isp': self.secondary.wan2.service_provider,
-                    'linkspeed': self.secondary.wan2.limit_down
-                }
-                public_ips.append(self.secondary.wan2.public_ip)
-        else:
-        """
+        
             links['wan1'] = {
                 'ipaddress': self.primary.wan1.public_ip,
                 'isp': self.primary.wan1.service_provider,
