@@ -52,6 +52,10 @@ class Appliance():
         @return: Information of WAN links
         '''
         links = {}
+        """
+        Remove WarmSpare - Azure not Support Multiple IP
+        """
+        """
         if self.warmspare_enabled:
             public_ips = []
             if self.primary.wan1.public_ip and self.primary.wan1.public_ip not in public_ips:
@@ -83,6 +87,7 @@ class Appliance():
                 }
                 public_ips.append(self.secondary.wan2.public_ip)
         else:
+        """
             links['wan1'] = {
                 'ipaddress': self.primary.wan1.public_ip,
                 'isp': self.primary.wan1.service_provider,
